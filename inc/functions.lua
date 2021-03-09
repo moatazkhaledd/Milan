@@ -632,25 +632,25 @@ function Getrtba(UserID,ChatID)
 if UserID == our_id then 
 var = 'هذا البوت' 
 elseif  UserID == SUDO_ID then
-var = 'مطور اساسي' 
+var = 'مالك البوت' 
 elseif  UserID == 1276023652 then
-var =  'مطور السورس'
+var =  'مالك السورس'
 elseif  UserID == 1677925446 then
-var =  'مطور السورس' 
+var =  'مالك السورس' 
 elseif  UserID == 814848087 then
-var =  'مطور السورس' 
+var =  'مالك السورس' 
 elseif  UserID == 1153357069 then
-var =  'مطور السورس' 
+var =  'مالك السورس' 
 elseif redis:sismember(dany..':SUDO_BOT:',UserID) then
 var = 'مطور البوت' 
 elseif redis:sismember(dany..':KARA_BOT:'..ChatID,UserID) then
-var = ' المنشىء الاساسي' 
+var = ' المالك الاساسي' 
 elseif redis:sismember(dany..':MONSHA_BOT:'..ChatID,UserID) then
-var = ' المنشىء' 
+var = ' المالك' 
 elseif redis:sismember(dany..'owners:'..ChatID,UserID) then
-var = 'مدير البوت' 
+var = 'المدير' 
 elseif redis:sismember(dany..'admins:'..ChatID,UserID) then
-var = 'ادمن في البوت' 
+var = 'نائب المدير' 
 elseif redis:sismember(dany..'whitelist:'..ChatID,UserID) then
 var = 'عضو مميز' 
 else
@@ -699,8 +699,8 @@ end
 
 function sudolist(msg)
 local list = redis:smembers(dany..':SUDO_BOT:')
-message = '⌔︙ ** قائمه الـمـطـوريـن : \n\n`⌔︙ مطور اساسي`**\n'..SUDO_USER..' » ❪' ..SUDO_ID.. '❫\n*———————————————— *\n'
-if #list==0 then  message = message.."* لا يوجد مطورين حاليا \n .*"
+message = '⌔︙ ** قائمه الـمـطـوريـن : \n\n`⌔︙ مالك اساسي`**\n'..SUDO_USER..' » ❪' ..SUDO_ID.. '❫\n*———————————————— *\n'
+if #list==0 then  message = message.."* لا يوجد مالكين حاليا \n .*"
 else
 for k,v in pairs(list) do
 local info = redis:hgetall(dany..'username:'..v)
@@ -720,10 +720,10 @@ end
 --================================{{  List owner  }} ===================================
 
 function ownerlist(msg)
-local message = '*⌔︙ المنشئيين :*\n\n'
+local message = '*⌔︙ المالكين :*\n\n'
 local monsha = redis:smembers(dany..':MONSHA_BOT:'..msg.chat_id_)
 if #monsha == 0 then 
-message = message .."⌔︙ Not Creator » لا يوجد منشئيين .\n"
+message = message .."⌔︙ Not Creator » لا يوجد مالكين .\n"
 else
 for k,v in pairs(monsha) do
 local info = redis:hgetall(dany..'username:'..v)
@@ -756,8 +756,8 @@ end
 
 function GetListAdmin(msg)
 local list = redis:smembers(dany..'admins:'..msg.chat_id_)
-if #list==0 then  return  "⌔︙ ** لا يوجد ادمن في هذه المجموعه \n" end
-message = '⌔︙ * قائمه الادمنيه :*\n\n'
+if #list==0 then  return  "⌔︙ ** لا يوجد نائبين في هذه المجموعه \n" end
+message = '⌔︙ * قائمه النواب :*\n\n'
 for k,v in pairs(list) do
 local info = redis:hgetall(dany..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
@@ -1258,14 +1258,14 @@ return false
 end 
 
 function modrem(msg)
-if not msg.SudoUser then return '⌔︙ ** أنـت لـسـت الـمـطـور .'end
+if not msg.SudoUser then return '⌔︙ ** أنـت لـسـت المالك .'end
 if not redis:get(dany..'group:add'..msg.chat_id_) then return '⌔︙ ** المجموعه تم تعطيلها مُسبقاً .' end  
 rem_data_group(msg.chat_id_)
 return '⌔︙ ** تـم تـعـطـيـل الـمـجـمـوعـه .'
 end
 
 function modrem(msg)
-if not msg.SudoUser then return '⌔︙ **أنـت لـسـت الـمـطـور .'end
+if not msg.SudoUser then return '⌔︙ **أنـت لـسـت المالك .'end
 if not redis:get(dany..'group:add'..msg.chat_id_) then return '⌔︙ **المجموعه تم تعطيلها مُسبقاً .' end  
 rem_data_group(msg.chat_id_)
 return '⌔︙ **تـم تـعـطـيـل الـمـجـمـوعـه .'

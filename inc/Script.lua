@@ -372,7 +372,7 @@ if not msg.Admin then return "⌔︙** هذا الامر يخص {الادمن,ا
 return ownerlist(msg) .. GetListAdmin(msg) .. whitelist(msg)
 end
 
-if MsgText[1] == "المنشى الاساسي" then 
+if MsgText[1] == "المالك الاساسي" then 
 if not msg.Admin then return "⌔︙**هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n" end
 return MONSEBOT(msg) 
 end
@@ -382,7 +382,7 @@ if not msg.Admin then return "⌔︙**هذا الامر يخص {الادمن,ا�
 return ownerlist(msg) 
 end
 
-if MsgText[1] == "المنشئ الاساسي" then 
+if MsgText[1] == "المالك الاساسي" then 
 if not msg.Admin then return "⌔︙**هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n" end
 return Hussainlist(msg) 
 end
@@ -597,7 +597,7 @@ return false
 end
 
 
-if (MsgText[1] == "رفع منشى اساسي" or MsgText[1] == "رفع منشئ اساسي") then
+if (MsgText[1] == "رفع مالك اساسي" or MsgText[1] == "رفع مالك اساسي") then
 if not msg.SudoUser then return "⋆**هذا الامر يخص {المطور,المطور الاساسي} فقط  \n" end
 if not MsgText[2] and msg.reply_id then 
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="setkara"}) 
@@ -613,7 +613,7 @@ return false
 end 
 end
 
-if (MsgText[1] == "تنزيل منشى اساسي" or MsgText[1] == "تنزيل منشئ اساسي") then
+if (MsgText[1] == "تنزيل مالك اساسي" or MsgText[1] == "تنزيل مالك اساسي") then
 if not msg.SudoUser then return "⋆**هذا الامر يخص {المطور,المطور الاساسي} فقط  \n" end
 if not MsgText[2] and msg.reply_id then 
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="remkara"}) 
@@ -630,7 +630,7 @@ end
 end
 
 
-if (MsgText[1] == "رفع منشى" or MsgText[1] == "رفع منشئ") then
+if (MsgText[1] == "رفع مالك" or MsgText[1] == "رفع مالك") then
 if not msg.Kara then return "⋆**هذا الامر يخص {المنشئ الاساسي,المطور,المطور الاساسي} فقط  \n" end
 if not MsgText[2] and msg.reply_id then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="setmnsha"})
@@ -645,7 +645,7 @@ return false
 end
 
 
-if (MsgText[1] == "تنزيل منشى" or MsgText[1] == "تنزيل منشئ" ) then
+if (MsgText[1] == "تنزيل مالك" or MsgText[1] == "تنزيل مالك" ) then
 if not msg.Kara then return "⋆**هذا الامر يخص {المطور,المنشى الاساسي فقط} فقط  \n" end
 if not MsgText[2] and msg.reply_id then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="remmnsha"})
@@ -660,7 +660,7 @@ return false
 end
 
 
-if MsgText[1] == "رفع ادمن" then
+if MsgText[1] == "رفع نائب مدير" then
 if not msg.Director then return "⋆**هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n" end
 if not MsgText[2] and msg.reply_id then
 if redis:get(dany..'lock:kara:'..msg.chat_id_) == 'off' then
@@ -685,7 +685,7 @@ end
 
 
 
-if MsgText[1] == "تنزيل ادمن" then
+if MsgText[1] == "تنزيل نائب مدير" then
 if not msg.Director then return "⋆**هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n" end
 if not MsgText[2] and msg.reply_id then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="demote"})
@@ -711,7 +711,7 @@ redis:del(dany..'owners:'..msg.chat_id_)
 local MMEZEN = redis:scard(dany..'whitelist:'..msg.chat_id_)
 redis:del(dany..'whitelist:'..msg.chat_id_)
 
-return "⋆أهلاً عزيزي "..msg.TheRankCmd.." ↓\n⋆تم تنزيل ❴ "..Admins.." ❵ من الادمنيه\n⋆تم تنزيل ❴ "..NumMDER.." ❵ من المدراء\n⋆تم تنزيل ❴ "..MMEZEN.." ❵ من المميزين\n\n⋆تم تـنـزيـل الـكـل بـنـجـاح\n" 
+return "⋆أهلاً عزيزي "..msg.TheRankCmd.." ↓\n⋆تم تنزيل ❴ "..Admins.." ❵ من النائبين\n⋆تم تنزيل ❴ "..NumMDER.." ❵ من المدراء\n⋆تم تنزيل ❴ "..MMEZEN.." ❵ من المميزين\n\n⋆تم تـنـزيـل الـكـل بـنـجـاح\n" 
 end
 
 
@@ -2344,12 +2344,10 @@ end
 
 if MsgText[1] == "السورس" or MsgText[1]=="سورس" then
 return [[
-━━━  مِـيـلَان  ━━━ ⋆
-[• 𝙼𝙾𝙰𝚃𝙰𝚉](t.me/VV_0M) 💌 .
-[• 𝙼𝙰𝙽𝙳𝙾](https://t.me/MaaaaNdo) 💌 .
-[• 𝙿𝙴𝚃𝙴𝚁](t.me/B980b) 💌 .
+[• مـطـور الـسـورس𝟏](t.me/VV_0M) 💌 .
+[• مـطـور الـسـورس𝟐](https://t.me/MaaaaNdo) 💌 .
+[• مـطـور الـسـورس𝟑](t.me/B980b) 💌 .
 [• 𝚂𝙾𝚄𝚁𝙲𝙴 𝙼𝙸𝙻𝙰𝙽](t.me/SourceMilan) 💌 .
-⋆  ━━━  مِـيـلَان  ━━━ ⋆
 ]]
 end
 

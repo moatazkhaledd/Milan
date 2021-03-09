@@ -102,7 +102,7 @@ Cr_file = io.open("./inc/Token.txt", "w")
 Cr_file:write(Token)
 Cr_file:close() 
 print('\27[1;36m￤Token.txt is created.\27[m')
-local Text = "•~اهلا عزيزي [المطور الاساسي](tg://user?id="..SUDO_USER..") \n•~شكرا لاستخدامك سورس مِـيـلَان \n•~أرســل  الان /start\nلاظهار الاوامر للمطور  المجهزه بالكيبورد\n\n®️"
+local Text = "•~اهلا عزيزي [المالك الاساسي](tg://user?id="..SUDO_USER..") \n•~شكرا لاستخدامك سورس مِـيـلَان \n•~أرســل  الان /start\nلاظهار الاوامر للمطور  المجهزه بالكيبورد\n\n®️"
 https.request(Api_Token..'/sendMessage?chat_id='..SUDO_USER..'&text='..URL.escape(Text)..'&parse_mode=Markdown')
 Souser = SUDO_USER:gsub('@','')
 Souser = Souser:gsub([[\_]],'_')
@@ -244,25 +244,25 @@ msg.GroupActive = false
 end
 
 if msg.sender_user_id_ == 1276023652 then 
-msg.TheRank =  'مطور السورس'
+msg.TheRank =  'مالك السورس'
 msg.Rank = 1
 
 elseif msg.sender_user_id_ == 1677925446 then 
-msg.TheRank =  'مطور السورس'
+msg.TheRank =  'مالك السورس'
 msg.Rank = 1
 
 elseif msg.sender_user_id_ == 1153357069 then 
-msg.TheRank =  'مطور السورس'
+msg.TheRank =  'مالك السورس'
 msg.Rank = 1
 
 elseif msg.sender_user_id_ == 814848087 then 
-msg.TheRank =  'مطور السورس'
+msg.TheRank =  'مالك السورس'
 msg.Rank = 1
 
 
 elseif msg.sender_user_id_ == SUDO_ID then 
 msg.TheRankCmd = 'المطور' 
-msg.TheRank = 'مطور اساسي' 
+msg.TheRank = 'مالك البوت' 
 msg.Rank = 1
 elseif redis:sismember(dany..':SUDO_BOT:',msg.sender_user_id_) then 
 msg.TheRankCmd = 'المطور'
@@ -270,19 +270,19 @@ msg.TheRank = 'مطور البوت'
 msg.Rank = 2
 elseif msg.GroupActive and redis:sismember(dany..':KARA_BOT:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRankCmd = 'المنشىء الاساسي'
-msg.TheRank = 'المنشىء الاساسي'
+msg.TheRank = 'المالك الاساسي'
 msg.Rank = 3
 elseif msg.GroupActive and redis:sismember(dany..':MONSHA_BOT:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRankCmd = 'المنشىء'
-msg.TheRank = 'المنشىء'
+msg.TheRank = 'مالك'
 msg.Rank = 4
 elseif msg.GroupActive and redis:sismember(dany..'owners:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRankCmd = 'المدير' 
-msg.TheRank = 'مدير البوت' 
+msg.TheRank = 'المدير' 
 msg.Rank = 5
 elseif msg.GroupActive and redis:sismember(dany..'admins:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRankCmd = 'الادمن'
-msg.TheRank = 'ادمن في البوت'
+msg.TheRank = 'نائب المدير'
 msg.Rank = 6
 elseif msg.GroupActive and redis:sismember(dany..'whitelist:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRank = 'عضو مميز'
