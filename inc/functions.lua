@@ -1297,11 +1297,11 @@ return sendMsg(ChatID,MsgID,"⌔︙ **لا يمكنك تقييد المطور ا
 elseif redis:sismember(dany..':SUDO_BOT:',UserID) then 
 return sendMsg(ChatID,MsgID,"⌔︙ **لا يمكنك تقييد المطور\n") 
 elseif redis:sismember(dany..':MONSHA_BOT:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"⌔︙ **لا يمكنك تقييد المنشئ\n") 
+return sendMsg(ChatID,MsgID,"⌔︙ **لا يمكنك تقييد المالك\n") 
 elseif redis:sismember(dany..'owners:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"⌔︙ **لا يمكنك تقييد المدير\n") 
 elseif redis:sismember(dany..'admins:'..ChatID,UserID) then 
-return sendMsg(ChatID,MsgID,"⌔︙ **لا يمكنك تقييد الادمن\n") 
+return sendMsg(ChatID,MsgID,"⌔︙ **لا يمكنك تقييد نائب المدير\n") 
 end
 GetChatMember(ChatID,UserID,function(arg,data)
 if data.status_.ID == "ChatMemberStatusMember" then
@@ -1330,19 +1330,19 @@ elseif data.type_.ID == "chatTypeChannel" then
 return sendMsg(ChatID,MsgID,"⌔︙ **عذرا لا يمكن رفع قناة في البوت \n") 
 end
 if redis:sismember(dany..':MONSHA_BOT:'..ChatID,UserID) then 
-return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ انه بالتأكيد منشىء  \n↯',17,USERCAR) 
+return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ انه بالتأكيد مالك  \n↯',17,USERCAR) 
 end
 redis:hset(dany..'username:'..UserID,'username',Resolv)
 redis:sadd(dany..':MONSHA_BOT:'..ChatID,UserID)
-return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ تمت ترقيته ليصبح منشىء \n↯',17,USERCAR) 
+return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ تمت ترقيته ليصبح مالك \n↯',17,USERCAR) 
 end
 
 if cmd == "remmnsha" then
 if not redis:sismember(dany..':MONSHA_BOT:'..ChatID,UserID) then
-return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ انه بالتأكيد ليس منشىء \n↯',17,USERCAR) 
+return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ انه بالتأكيد ليس مالك \n↯',17,USERCAR) 
 end
 redis:srem(dany..':MONSHA_BOT:'..ChatID,UserID)
-return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ تم تنزيله من المنشىء \n↯',17,USERCAR) 
+return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ تم تنزيله من المالك \n↯',17,USERCAR) 
 end
 
 if cmd == "setkara" then
@@ -1354,19 +1354,19 @@ elseif data.type_.ID == "chatTypeChannel" then
 return sendMsg(ChatID,MsgID,"• **عذرا لا يمكن رفع قناة في البوت \n") 
 end
 if redis:sismember(dany..':KARA_BOT:'..ChatID,UserID) then 
-return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ انه بالتأكيد منشىء اساسي \n↯',17,USERCAR) 
+return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ انه بالتأكيد مالك اساسي \n↯',17,USERCAR) 
 end
 redis:hset(dany..'username:'..UserID,'username',Resolv)
 redis:sadd(dany..':KARA_BOT:'..ChatID,UserID)
-return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ تمت ترقيته ليصبح منشىء اساسي \n↯',17,USERCAR) 
+return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ تمت ترقيته ليصبح مالك اساسي \n↯',17,USERCAR) 
 end
 
 if cmd == "remkara" then
 if not redis:sismember(dany..':KARA_BOT:'..ChatID,UserID) then
-return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ انه بالتأكيد ليس منشىء اساسي\n↯',17,USERCAR) 
+return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ انه بالتأكيد ليس مالك اساسي\n↯',17,USERCAR) 
 end
 redis:srem(dany..':KARA_BOT:'..ChatID,UserID)
-return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ تم تنزيله من المنشىء الاساسي\n↯',17,USERCAR) 
+return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ تم تنزيله من المالك الاساسي\n↯',17,USERCAR) 
 end
 
 if cmd == "setwhitelist" then
@@ -1414,11 +1414,11 @@ elseif data.type_.ID == "UserTypeBot" then
 return sendMsg(ChatID,MsgID,"⌔︙ **عذرا لا يمكن رفع بوت في البوت \n") 
 end
 if redis:sismember(dany..'admins:'..ChatID,UserID) then 
-return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ انه بالتأكيد ادمن \n↯',17,USERCAR) 
+return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ انه بالتأكيد نائب مدير \n↯',17,USERCAR) 
 end
 redis:hset(dany..'username:'..UserID, 'username', Resolv)
 redis:sadd(dany..'admins:'..ChatID,UserID)
-return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ تمت ترقيته ليصبح ادمن \n↯',17,USERCAR) 
+return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ تمت ترقيته ليصبح نائب مدير \n↯',17,USERCAR) 
 end
 
 if cmd == "remowner" then
@@ -1431,10 +1431,10 @@ end
 
 if cmd == "demote" then
 if not redis:sismember(dany..'admins:'..ChatID,UserID) then 
-return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ انه بالتأكيد ليس ادمن \n↯',17,USERCAR) 
+return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ انه بالتأكيد ليس نائب مدير \n↯',17,USERCAR) 
 end
 redis:srem(dany..'admins:'..ChatID,UserID)
-return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ تم تنزيله من الادمنيه \n↯',17,USERCAR) 
+return SendMention(ChatID,UserID,MsgID,'⌔︙ العضو » ❪ '..USERNAME..' ❫\n⌔︙ الايدي » ❪ '..UserID..' ❫\n⌔︙ تم تنزيله من النائبين \n↯',17,USERCAR) 
 end
 
 if cmd == "iduser" then
