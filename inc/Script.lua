@@ -1214,7 +1214,7 @@ if redis:get(dany.."getidstatus"..msg.chat_id_) == "Photo" then
 		}
 		ssssys = ali[math.random(#ali)]
 		if not redis:get("KLISH:ID") then
-    sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,' \n⌔︙𝐍𝐀𝐌𝐄 ⇢ '..Namei..' ࿈\n⌔︙𝐔𝐒𝐄𝐑 ⇢ '..UserNameID..' ࿈\n⌔︙𝐌𝐒𝐆 ⇢ '..msgs..' ࿈\n⌔︙𝐒𝐓𝐀 ⇢ '..msg.TheRank..' ࿈\n⌔︙𝐈𝐃 ⇢ '..msg.sender_user_id_..' ࿈\n',dl_cb,nil)
+    sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,' \n• NAME 𖥳 '..Namei..' .\n• USE 𖦹 '..UserNameID..' .\n• MSG 𖥳 '..msgs..' .\n• STA 𖦹 '..msg.TheRank..' .\n• iD 𖥳 '..msg.sender_user_id_..' .\n',dl_cb,nil)
     else
 		Text = redis:get("KLISH:ID")
 		Text = Text:gsub('IDGET',msg.sender_user_id_)
@@ -1229,7 +1229,7 @@ if redis:get(dany.."getidstatus"..msg.chat_id_) == "Photo" then
 		end
 	else
 		if not redis:get("KLISH:ID") then
-    sendMsg(msg.chat_id_,msg.id_,'•لا يمكنني عرض صورتك لانك قمت بحظر البوت او انك لاتملك صوره في بروفيلك ...! \n⌔︙𝐍𝐀𝐌𝐄 ⇢  '..Namei..' ࿈\n⌔︙𝐔𝐒𝐄𝐑 ⇢ '..UserNameID..' ࿈\n⌔︙𝐌𝐒𝐆 ⇢  '..msgs..' ࿈\n⌔︙𝐒𝐓𝐀 ⇢ '..msg.TheRank..' ࿈\n⌔︙𝐈𝐃 ⇢ '..msg.sender_user_id_..' ࿈')
+    sendMsg(msg.chat_id_,msg.id_,'•لا يمكنني عرض صورتك لانك قمت بحظر البوت او انك لاتملك صوره في بروفيلك ...! \n• NAME 𖥳 '..Namei..' \n• USE 𖦹 '..UserNameID..' \n• MSG 𖥳  '..msgs..' \n• STA 𖦹 '..msg.TheRank..' \n• iD 𖥳 '..msg.sender_user_id_..' ')
     else
 		Text = redis:get("KLISH:ID")
 		Text = Text:gsub('IDGET',msg.sender_user_id_)
@@ -1256,7 +1256,7 @@ else
 		Text = Text:gsub('User_Points',nko)
 		sendMsg(msg.chat_id_,msg.id_,Flter_Markdown(Text))
 		else
-    sendMsg(msg.chat_id_,msg.id_,'•الايدي بالصوره معطل \n⌔︙𝐍𝐀𝐌𝐄 ⇢ '..Namei..' ࿈\n⌔︙𝐔𝐒𝐄𝐑 ⇢ '..UserNameID..' ࿈.\n⌔︙𝐌𝐒𝐆 ⇢ '..msgs..' ࿈\n⌔︙𝐒𝐓𝐀 ⇢  '..msg.TheRank..' ࿈\n⌔︙𝐈𝐃 ⇢ '..msg.sender_user_id_..' ࿈')
+    sendMsg(msg.chat_id_,msg.id_,'•الايدي بالصوره معطل \n• NAME 𖥳 '..Namei..' \n• USE 𖦹 '..UserNameID..' ࿈.\n• MSG 𖥳 '..msgs..' \n• STA 𖦹  '..msg.TheRank..' \n• iD 𖥳 '..msg.sender_user_id_..' ')
     end
 end
 
@@ -3932,9 +3932,9 @@ return sendMsg(msg.chat_id_,msg.id_,dr[math.random(#dr)])
 elseif not msg.SudoUser and Text==" بوت" or Text == "بوت" then
 return 
 sendMsg(msg.chat_id_,msg.id_,nnn[math.random(#nnn)]) 
-elseif Text== "معتز" or Text== "وزه" then return  sendMsg(msg.chat_id_,msg.id_,"[مطور سورس ميلان↯](https://t.me/VV_0M)")
-elseif Text== "مينا" or Text== "ماندو" then return  sendMsg(msg.chat_id_,msg.id_,"[مطور سورس بلانك↯](http://t.me/IlClIl)")
-elseif Text== "بيتر" then return sendMsg(msg.chat_id_,msg.id_,"[مطور سورس ميلان↯](https://t.me/B980b)")
+elseif Text== "معتز" or Text== "وزه" then return  sendMsg(msg.chat_id_,msg.id_,"[مطور سورس بيتر↯](https://t.me/VV_0M)")
+elseif Text== "مينا" or Text== "ماندو" then return  sendMsg(msg.chat_id_,msg.id_,"[مطور سورس بيتر↯](http://t.me/IlClIl)")
+elseif Text== "بيتر" then return sendMsg(msg.chat_id_,msg.id_,"[مطور سورس بيتر↯](https://t.me/B980b)")
 elseif Text== "فارس" or Text== "بوت حذف" then return  sendMsg(msg.chat_id_,msg.id_,"[الحمدلله يبرو انت اي الاخبار](https://t.me/DTeLebot)")
 elseif Text== "رفع غبي"  then return sendMsg(msg.chat_id_,msg.id_,"⌔︙أهلاً عزيزي\n⌔︙تم رفع الغبي بنجاح↯\n⌔︙تمت إضافته إلى قائمه الأغبياء\n↯")
 elseif Text== "تنزيل غبي"  then return sendMsg(msg.chat_id_,msg.id_,"⌔︙أهلاً عزيزي\n⌔︙تم تنزيل الغبي بنجاح↯\n⌔︙تمت الزاله من قائمه الأغبياء\n↯")
