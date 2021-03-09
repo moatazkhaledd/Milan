@@ -681,7 +681,7 @@ if redis:get(dany..'lock:kara:'..msg.chat_id_) == 'on' then
 sendMsg(msg.chat_id_,msg.id_,"⋆** أهلا عزيزي "..msg.TheRankCmd.."\n⋆** الرفع معطل \n")
 end
 return false
-end0
+end
 
 
 
@@ -2345,7 +2345,7 @@ end
 if MsgText[1] == "السورس" or MsgText[1]=="سورس" then
 return [[
 [• مـطـور الـسـورس𝟏](t.me/VV_0M) 💌 .
-[• مـطـور الـسـورس𝟐](https://t.me/MaaaaNdo) 💌 .
+[• مـطـور الـسـورس𝟐](http://t.me/IlClIl) 💌 .
 [• مـطـور الـسـورس𝟑](t.me/B980b) 💌 .
 [• قـنـاة الـسـورس](http://t.me/SORPET) 💌 .
 ]]
@@ -3933,7 +3933,7 @@ elseif not msg.SudoUser and Text==" بوت" or Text == "بوت" then
 return 
 sendMsg(msg.chat_id_,msg.id_,nnn[math.random(#nnn)]) 
 elseif Text== "معتز" or Text== "وزه" then return  sendMsg(msg.chat_id_,msg.id_,"[مطور سورس ميلان↯](https://t.me/VV_0M)")
-elseif Text== "مينا" or Text== "ماندو" then return  sendMsg(msg.chat_id_,msg.id_,"[مطور سورس بلانك↯](https://t.me/MaaaaNdo)")
+elseif Text== "مينا" or Text== "ماندو" then return  sendMsg(msg.chat_id_,msg.id_,"[مطور سورس بلانك↯](http://t.me/IlClIl)")
 elseif Text== "بيتر" then return sendMsg(msg.chat_id_,msg.id_,"[مطور سورس ميلان↯](https://t.me/B980b)")
 elseif Text== "فارس" or Text== "بوت حذف" then return  sendMsg(msg.chat_id_,msg.id_,"[الحمدلله يبرو انت اي الاخبار](https://t.me/DTeLebot)")
 elseif Text== "رفع غبي"  then return sendMsg(msg.chat_id_,msg.id_,"⌔︙أهلاً عزيزي\n⌔︙تم رفع الغبي بنجاح↯\n⌔︙تمت إضافته إلى قائمه الأغبياء\n↯")
