@@ -737,7 +737,7 @@ end
 message = message..'*————————— \n\n⌔︙ قائمه المدراء :*\n\n'
 local list = redis:smembers(dany..'owners:'..msg.chat_id_)
 if #list == 0 then  
-message = message.."⌔︙ Not Director < لا يوجد مدراء .\n" 
+message = message.."⌔︙ Not Director » لا يوجد مدراء .\n" 
 else
 for k,v in pairs(list) do
 local info = redis:hgetall(dany..'username:'..v)
