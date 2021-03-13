@@ -2343,12 +2343,14 @@ return [[
 end
 
 if MsgText[1] == "السورس" or MsgText[1]=="سورس" then
-return [[
-[• مـطـور الـسـورس𝟏](t.me/VV_0M) 💌 .
-[• مـطـور الـسـورس𝟐](http://t.me/IlClIl) 💌 .
-[• مـطـور الـسـورس𝟑](t.me/B980b) 💌 .
-[• قـنـاة الـسـورس](http://t.me/SORPET) 💌 .
-]]
+local keyboard = {}
+keyboard.inline_keyboard = {
+{{text = '𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁𝟏.',url="https://t.me/UUIIID"},
+{{text = '𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁𝟐.',url="https://t.me/MaaaaNdo"},
+{text = '- 𝚂𝙾𝚄𝚁𝙲𝙴 𝙲𝙷𝙰𝙽𝙽𝙴𝙻.',url="https://t.me/SORPET"}},
+{text = '- C𝙾𝙽𝚃𝙸𝙽𝚄𝙴.',url="https://t.me/UUIIIQbot"}},
+}   
+send_inline(msg.chat_id_,  "اهلاً بك في سورس بـيـتـر🔥" ,keyboard,'html')
 end
 
 if MsgText[1] == "التاريخ" then
