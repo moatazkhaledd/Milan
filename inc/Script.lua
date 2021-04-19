@@ -2342,14 +2342,17 @@ return [[
 ]]
 end
 
+
 if MsgText[1] == "السورس" or MsgText[1]=="سورس" then
-return [[
-[• مـطـور الـسـورس𝟏](http://t.me/VV_0M) 💌 .
-[• مـطـور الـسـورس𝟐](http://t.me/IlClIl) 💌 .
-[• مـطـور الـسـورس𝟑](http://t.me/B980b) 💌 .
-[• قـنـاة الـسـورس](http://t.me/SORPET) 💌 .
-]]
+local keyboard = {}
+keyboard.inline_keyboard = {
+{{text = '- SOURCE DEV .',url="https://t.me/VV_0M"},
+{{text = '- SOURCE DEV .',url="https://t.me/VV_0M"},
+{text = '- 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐄𝐓𝐄𝐑 🇰🇷 .',url="https://t.me/SORPET"}},
+}   
+send_inline(msg.chat_id_,  "𓆩 𝒘𝒆𝒍𝒄𝒐𝒎𝒆 𝒕𝒐 𝒔𝒐𝒖𝒓𝒄𝒆  𓆪" ,keyboard,'html')
 end
+
 
 if MsgText[1] == "التاريخ" then
 return "\n⋆ الـتـاريـخ : "..os.date("%Y/%m/%d")
