@@ -2344,13 +2344,14 @@ end
 
 
 if MsgText[1] == "السورس" or MsgText[1]=="سورس" then
-local keyboard = {}
-keyboard.inline_keyboard = {
-{{text = '- SOURCE DEV .',url="https://t.me/VV_0M"},
-{{text = '- SOURCE DEV .',url="https://t.me/VV_0M"},
-{text = '- 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐄𝐓𝐄𝐑 🇰🇷 .',url="https://t.me/SORPET"}},
-}   
-send_inline(msg.chat_id_,  "𓆩 𝒘𝒆𝒍𝒄𝒐𝒎𝒆 𝒕𝒐 𝒔𝒐𝒖𝒓𝒄𝒆  𓆪" ,keyboard,'html')
+return [[
+⋆  ━━━   𝐏𝐄𝐓𝐄𝐑 🇰🇷  ━━━ ⋆
+[• SOURCE DEV](t.me/VV_0M) 💌 .
+[• SOURCE DEV](t.me/IlClIl) 💌 .
+[• SOURCE DEV](t.me/N_2002h) 💌 .
+[•  𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐄𝐓𝐄𝐑 🇰🇷](https://t.me/SORPET) 💌 .
+⋆  ━━━   𝐏𝐄𝐓𝐄𝐑 🇰🇷  ━━━ ⋆
+]]
 end
 
 
@@ -3937,7 +3938,7 @@ return
 sendMsg(msg.chat_id_,msg.id_,nnn[math.random(#nnn)]) 
 elseif Text== "معتز" or Text== "وزه" then return  sendMsg(msg.chat_id_,msg.id_,"[مطور سورس بيتر↯](https://t.me/VV_0M)")
 elseif Text== "مينا" or Text== "ماندو" then return  sendMsg(msg.chat_id_,msg.id_,"[مطور سورس بيتر↯](http://t.me/IlClIl)")
-elseif Text== "بيتر" then return sendMsg(msg.chat_id_,msg.id_,"[مطور سورس بيتر↯](https://t.me/B980b)")
+elseif Text== "نادر" then return sendMsg(msg.chat_id_,msg.id_,"[مطور سورس بيتر↯](https://t.me/N_2002h)")
 elseif Text== "فارس" or Text== "بوت حذف" then return  sendMsg(msg.chat_id_,msg.id_,"[الحمدلله يبرو انت اي الاخبار](https://t.me/DTeLebot)")
 elseif Text== "رفع غبي"  then return sendMsg(msg.chat_id_,msg.id_,"⌔︙أهلاً عزيزي\n⌔︙تم رفع الغبي بنجاح↯\n⌔︙تمت إضافته إلى قائمه الأغبياء\n↯")
 elseif Text== "تنزيل غبي"  then return sendMsg(msg.chat_id_,msg.id_,"⌔︙أهلاً عزيزي\n⌔︙تم تنزيل الغبي بنجاح↯\n⌔︙تمت الزاله من قائمه الأغبياء\n↯")
