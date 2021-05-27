@@ -1194,28 +1194,28 @@ end
 if MsgText[1] == "ايدي" or MsgText[1]:lower() == "id" then
 if not MsgText[2] and not msg.reply_id then
 
-if redis:get(bita..'lock_id'..msg.chat_id_) then 
-local msgs = redis:get(bita..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_) or 1
+if redis:get(dany..'lock_id'..msg.chat_id_) then 
+local msgs = redis:get(dany..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_) or 1
 GetUserID(msg.sender_user_id_,function(arg,data)
 if data.username_ then UserNameID = "@"..data.username_.."" else UserNameID = "" end
-local points = redis:get(bita..':User_Points:'..msg.chat_id_..msg.sender_user_id_)
+local points = redis:get(dany..':User_Points:'..msg.chat_id_..msg.sender_user_id_)
 if points and points ~= "0" then
 nko = points
 else
 nko = '0'
 end
-local rfih = (redis:get(bita..':edited:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)
-local NumGha = (redis:get(bita..':adduser:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)
+local rfih = (redis:get(dany..':edited:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)
+local NumGha = (redis:get(dany..':adduser:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)
 local Namei = FlterName(data.first_name_..' '..(data.last_name_ or ""),20)
 GetPhotoUser(msg.sender_user_id_,function(arg, data)
-if redis:get(bita.."getidstatus"..msg.chat_id_) == "Photo" then
+if redis:get(dany.."getidstatus"..msg.chat_id_) == "Photo" then
 	if data.photos_[0] then 
-		ali = {' ',
+		ali = {'شهل صورة😍😌','لا قيمه للقمر امام وجهك🌚🥀','خليني احبك🙈❤️','ببكن خاص 🌚😹','نكبل 🙈♥','منور اليوم 😻','فديت الحلو🌚😹','شهل عسل ،₍🍯😻⁾ ','كلي يا حلو منين الله جابك🙈❤️','يهلا بلعافيه😍','مارتاحلك😐','تحبني؟🙈',
 		}
 		ssssys = ali[math.random(#ali)]
 		if not redis:get("KLISH:ID") then
-		sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,' - ɴᴀᴍᴇ ➣   '..Namei..'     \n - ᴜѕᴇʀɴᴀᴍᴇ ➣ '..UserNameID..' .\n - ᴍѕɢѕ ➣ '..msgs..' .\n - ѕᴛᴀᴛѕ ➣ '..msg.TheRank..' .\n - ʏᴏᴜʀ ɪᴅ ➣ '..msg.sender_user_id_..' .',dl_cb,nil)
-		else
+    sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,' \n• NAME 𖥳 '..Namei..' .\n• USE 𖦹 '..UserNameID..' .\n• MSG 𖥳 '..msgs..' .\n• STA 𖦹 '..msg.TheRank..' .\n• iD 𖥳 '..msg.sender_user_id_..' .\n',dl_cb,nil)
+    else
 		Text = redis:get("KLISH:ID")
 		Text = Text:gsub('IDGET',msg.sender_user_id_)
 		Text = Text:gsub('USERGET',UserNameID)
@@ -1225,12 +1225,12 @@ if redis:get(bita.."getidstatus"..msg.chat_id_) == "Photo" then
 		Text = Text:gsub('edited',rfih)
 		Text = Text:gsub('adduser',NumGha)
 		Text = Text:gsub('User_Points',nko)
-		sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_," "..ssssys.."\n"..Text.."",dl_cb,nil)
+		sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,"🎇│"..ssssys.."\n"..Text.."",dl_cb,nil)
 		end
 	else
 		if not redis:get("KLISH:ID") then
-		sendMsg(msg.chat_id_,msg.id_,' لا يمكنني عرض صورتك لانك قمت بحظر البوت او انك لاتملك صوره في بروفيلك ...!\n - ɴᴀᴍᴇ ➣   '..Namei..'     \n - ᴜѕᴇʀɴᴀᴍᴇ ➣ '..UserNameID..' .\n - ᴍѕɢѕ ➣ '..msgs..' .\n - ѕᴛᴀᴛѕ ➣ '..msg.TheRank..' .\n - ʏᴏᴜʀ ɪᴅ ➣ '..msg.sender_user_id_..' .')
-		else
+    sendMsg(msg.chat_id_,msg.id_,'•لا يمكنني عرض صورتك لانك قمت بحظر البوت او انك لاتملك صوره في بروفيلك ...! \n• NAME 𖥳 '..Namei..' \n• USE 𖦹 '..UserNameID..' \n• MSG 𖥳  '..msgs..' \n• STA 𖦹 '..msg.TheRank..' \n• iD 𖥳 '..msg.sender_user_id_..' ')
+    else
 		Text = redis:get("KLISH:ID")
 		Text = Text:gsub('IDGET',msg.sender_user_id_)
 		Text = Text:gsub('USERGET',UserNameID)
@@ -1256,8 +1256,8 @@ else
 		Text = Text:gsub('User_Points',nko)
 		sendMsg(msg.chat_id_,msg.id_,Flter_Markdown(Text))
 		else
-		sendMsg(msg.chat_id_,msg.id_,' الايدي بالصوره معطل\n - ɴᴀᴍᴇ ➣   '..Namei..' .\n - ᴜѕᴇʀɴᴀᴍᴇ ➣ '..UserNameID..' .\n - ᴍѕɢѕ ➣ '..msgs..' .\n - ѕᴛᴀᴛѕ ➣ '..msg.TheRank..' .\n - ʏᴏᴜʀ ɪᴅ ➣ '..msg.sender_user_id_..' .')
-		end
+    sendMsg(msg.chat_id_,msg.id_,'•الايدي بالصوره معطل \n• NAME 𖥳 '..Namei..' \n• USE 𖦹 '..UserNameID..' ࿈.\n• MSG 𖥳 '..msgs..' \n• STA 𖦹  '..msg.TheRank..' \n• iD 𖥳 '..msg.sender_user_id_..' ')
+    end
 end
 
 end) 
@@ -2342,7 +2342,6 @@ return [[
 ]]
 end
 
-
 if MsgText[1] == "السورس" or MsgText[1]=="سورس" then
 return [[
 ⋆  ━━━   𝐏𝐄𝐓𝐄𝐑 🇰🇷  ━━━ ⋆
@@ -2352,7 +2351,6 @@ return [[
 ⋆  ━━━   𝐏𝐄𝐓𝐄𝐑 🇰🇷  ━━━ ⋆
 ]]
 end
-
 
 if MsgText[1] == "التاريخ" then
 return "\n⋆ الـتـاريـخ : "..os.date("%Y/%m/%d")
